@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriSense AI — Smart, Zone-Wise Irrigation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div class="wrap">
+        <div class="brand">AgriSense AI </div>
+        <div class="navlinks" id="navlinks">
+            <a href="#motivation">Motivation</a>
+            <a href="#problem">Problem</a>
+            <a href="#materials">Materials</a>
+        </div>
+        <button class="navtoggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-media" aria-hidden="true">
+        <video
+                class="hero-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                poster="https://images.unsplash.com/photo-1720334540915-335eaf0eb1d2?fm=jpg&q=70&w=2000&auto=format&fit=crop">
+            <!--
+                QUALITY NOTE: the embedded fallback below is Mixkit's free 360p preview stream,
+                which is why it looks soft once stretched full-width. To fix it:
+                  1) Best: film your own field/hardware footage at 1080p (phone, landscape) and
+                     save it as assets/hero-video.mp4 next to this file — it'll be picked up
+                     automatically since it's listed first below.
+                  2) Or: download the real 720p file from Mixkit's site (their download button,
+                     not a hotlink) and save it as assets/hero-video.mp4 the same way.
+                If assets/hero-video.mp4 doesn't exist yet, the browser silently falls back to
+                the low-res stock clip so the page still works while you get real footage ready.
+            -->
+            <source src="assets/hero-video.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/35854/35854-360.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="wrap">
+        <div class="hero-grid">
+            <div>
+                <div class="eyebrow-row">
+                    <span class="eyebrow-dot"></span>
+                    <p>Low-cost IoT + AI &nbsp;·&nbsp; Zone-wise irrigation</p>
+                </div>
+                <h1>Water only where the soil actually asks for it.</h1>
+                <p class="hero-sub">AgriSense AI reads soil moisture, temperature and humidity zone-by-zone, predicts irrigation needs, and waters automatically — replacing fixed schedules and manual guesswork with a continuous, root-level view of the field.</p>
+                <div class="hero-cta">
+                    <a href="#problem" class="btn btn-primary">See the problem</a>
+                    <a href="#materials" class="btn btn-ghost">See what we used</a>
+                </div>
+            </div>
+
+            <div class="flow">
+                <p class="flow-title">HOW IT WORKS</p>
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <span class="flow-num">01</span>
+                        <div>
+                            <h3>Sense</h3>
+                            <p>A field-wide IoT sensor network continuously reads soil moisture, temperature and humidity, zone by zone.</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <span class="flow-num">02</span>
+                        <div>
+                            <h3>Decide</h3>
+                            <p>Cloud + AI prediction turns raw readings into a real irrigation need for each zone, not a fixed calendar guess.</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <span class="flow-num">03</span>
+                        <div>
+                            <h3>Irrigate</h3>
+                            <p>Water is released only where and when it's actually required — cutting waste at the source.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-strip">
+        <div class="wrap">
+            <div class="strip-item"><b>Real crops,</b> real fields</div>
+            <div class="strip-item"><b>Zone-wise</b> soil data</div>
+            <div class="strip-item"><b>Predictive,</b> not reactive</div>
+            <div class="strip-item"><b>Measurable</b> water savings</div>
+        </div>
+    </div>
+</header>
+
+<section id="motivation" class="motivation">
+    <div class="motivation-media" aria-hidden="true"></div>
+    <div class="wrap">
+        <div class="section-head light-on-dark">
+            <p class="section-kicker gold">Background</p>
+            <h2>Why the current way of watering fields falls short</h2>
+            <p>Most small and mid-sized farms still rely on the calendar or a farmer's eye, not on what the soil is actually saying.</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="care-card">
+                <span class="care-num">Fixed schedules</span>
+                <h3>Traditional irrigation</h3>
+                <p>Farmers water on a fixed calendar or by manual judgement, regardless of what the soil actually needs that day.</p>
+            </div>
+            <div class="care-card">
+                <span class="care-num">Single outlet, whole field</span>
+                <h3>Uneven moisture distribution</h3>
+                <p>Flood and manual methods soak some patches while leaving others dry, since a single outlet can't reflect field variation.</p>
+            </div>
+            <div class="care-card">
+                <span class="care-num">Soil type, slope, shade</span>
+                <h3>Need for zone-wise monitoring</h3>
+                <p>Different zones of the same field differ in soil type, slope and shade, so one blanket schedule can't fit every zone.</p>
+            </div>
+            <div class="care-card">
+                <span class="care-num">Water, power, roots</span>
+                <h3>Need to reduce unnecessary watering</h3>
+                <p>Over-irrigation wastes water and electricity, leaches nutrients, and can damage roots — a growing concern as water tables fall.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="problem" class="problem">
+    <div class="problem-media" aria-hidden="true"></div>
+    <div class="wrap light-on-dark">
+        <div class="section-head">
+            <p class="section-kicker gold">Problem statement</p>
+        </div>
+
+        <p class="problem-quote">Most small and mid-sized farms still irrigate on fixed schedules or manual inspection, with <em>no continuous, zone-wise visibility</em> into real soil-moisture and micro-climate conditions — leading to over- or under-watering, wasted water and power, and reduced crop yield, with no low-cost, easy-to-deploy system to close this gap.</p>
+
+        <div class="problem-stats">
+            <div class="pstat">
+                <p>No zone-wise, real-time soil data at the root level.</p>
+            </div>
+            <div class="pstat">
+                <p>Significant, avoidable water and energy wastage.</p>
+            </div>
+            <div class="pstat">
+                <p>No predictive decision-making — only reactive watering.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="materials">
+    <div class="wrap">
+        <div class="section-head">
+            <p class="section-kicker">Bill of materials</p>
+            <h2>What we actually built this with</h2>
+            <p>A deliberately low-cost stack — off-the-shelf sensors and boards, chosen so any small farm could replicate the setup without specialised equipment.</p>
+        </div>
+
+        <div class="mat-groups">
+            <div class="mat-group">
+                <h3 class="mat-group-title">Sensing &amp; control</h3>
+                <div class="mat-list">
+                    <div class="mat-row">
+                        <div class="mat-name">Arduino Uno <span class="mat-qty">× 1</span></div>
+                        <div class="mat-desc">Main controller — reads the sensor array and drives the relay/pump.</div>
+                    </div>
+                    <div class="mat-row">
+                        <div class="mat-name">ESP32 NodeMCU dev board <span class="mat-qty">× 1</span></div>
+                        <div class="mat-desc">Handles Wi‑Fi connectivity, pushing zone readings to the cloud for prediction.</div>
+                    </div>
+                    <div class="mat-row">
+                        <div class="mat-name">Soil moisture sensor (YL‑69 probe + comparator module) <span class="mat-qty">× 1 per zone</span></div>
+                        <div class="mat-desc">Two-pronged probe reads root-zone moisture; the LM393 board outputs an analog/digital signal.</div>
+                    </div>
+                    <div class="mat-row">
+                        <div class="mat-name">1‑channel relay module <span class="mat-qty">× 1</span></div>
+                        <div class="mat-desc">Switches the pump on and off under microcontroller control.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mat-group">
+                <h3 class="mat-group-title">Irrigation hardware</h3>
+                <div class="mat-list">
+                    <div class="mat-row">
+                        <div class="mat-name">Mini submersible water pump <span class="mat-qty">× 1</span></div>
+                        <div class="mat-desc">Draws water from the reservoir and delivers it to the zone on demand.</div>
+                    </div>
+                    <div class="mat-row">
+                        <div class="mat-name">Silicone delivery tubing <span class="mat-qty">1 length</span></div>
+                        <div class="mat-desc">Carries water from the pump outlet to the irrigation point.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mat-group">
+                <h3 class="mat-group-title">Power</h3>
+                <div class="mat-list">
+                    <div class="mat-row">
+                        <div class="mat-name">Mini solar panel <span class="mat-qty">× 1</span></div>
+                        <div class="mat-desc">Keeps the system field-deployable without mains power.</div>
+                    </div>
+                    <div class="mat-row">
+                        <div class="mat-name">9V battery + snap connector <span class="mat-qty">× 2</span></div>
+                        <div class="mat-desc">Backup/primary power for the controller and pump circuit.</div>
+                    </div>
+                    <div class="mat-row">
+                        <div class="mat-name">Jumper wires (M‑M / M‑F) <span class="mat-qty">1 set</span></div>
+                        <div class="mat-desc">Wiring between sensors, relay, and controller boards.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="brand">AgriSense AI</div>
+        <p>Sense → Decide → Irrigate</p>
+    </div>
+</footer>
+
+<script>
+    const toggle = document.getElementById('navtoggle');
+    const links = document.getElementById('navlinks');
+    toggle.addEventListener('click', () => {
+        const isOpen = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Pause the hero background video when it's off-screen (saves battery/CPU on long scrolls)
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    heroVideo.play().catch(() => {});
+                } else {
+                    heroVideo.pause();
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(heroVideo);
+    }
+</script>
+</body>
+</html>
