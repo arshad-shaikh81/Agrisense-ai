@@ -353,29 +353,6 @@ section{padding:clamp(52px, 10vw, 88px) 0; position:relative;}
 }
 .pstat p{font-size:14.5px; line-height:1.55; color:rgba(245,241,228,0.78);}
 
-/* ---------- LITERATURE ---------- */
-#literature{background:var(--paper);}
-.lit-list{
-    display:flex; flex-direction:column;
-}
-.lit-row{
-    display:grid;
-    grid-template-columns:230px 1fr;
-    gap:28px;
-    padding:22px 0;
-    border-top:1px solid var(--line);
-}
-.lit-list .lit-row:last-child{border-bottom:1px solid var(--line);}
-@media (max-width:720px){ .lit-row{grid-template-columns:180px 1fr; gap:18px;} }
-@media (max-width:640px){ .lit-row{grid-template-columns:1fr; gap:6px; padding:18px 0;} }
-.lit-source{
-    font-size:14px; font-weight:600; color:var(--loam);
-}
-.lit-source span{
-    display:block; font-weight:400; color:var(--ink-soft); font-size:12.5px; margin-top:3px;
-}
-.lit-desc{font-size:14.5px; line-height:1.6; color:var(--ink-soft);}
-
 /* ---------- MATERIALS ---------- */
 #materials{background:var(--paper);}
 .mat-groups{
@@ -397,15 +374,25 @@ section{padding:clamp(52px, 10vw, 88px) 0; position:relative;}
 }
 .mat-row{
     display:grid;
-    grid-template-columns:320px 1fr;
-    gap:28px;
-    padding:18px 0;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:20px;
+    padding:16px 0;
     border-top:1px solid var(--line);
-    align-items:baseline;
 }
 .mat-group .mat-list .mat-row:last-child{border-bottom:1px solid var(--line);}
-@media (max-width:720px){ .mat-row{grid-template-columns:220px 1fr; gap:18px;} }
-@media (max-width:640px){ .mat-row{grid-template-columns:1fr; gap:6px; padding:16px 0;} }
+.mat-row-main{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:28px;
+    align-items:baseline;
+    min-width:0;
+}
+@media (max-width:860px){ .mat-row-main{grid-template-columns:220px 1fr; gap:18px;} }
+@media (max-width:640px){
+    .mat-row{grid-template-columns:1fr auto; padding:14px 0;}
+    .mat-row-main{grid-template-columns:1fr; gap:4px;}
+}
 .mat-name{
     font-size:15px;
     font-weight:600;
@@ -426,6 +413,141 @@ section{padding:clamp(52px, 10vw, 88px) 0; position:relative;}
     white-space:nowrap;
 }
 .mat-desc{font-size:14.5px; line-height:1.6; color:var(--ink-soft);}
+
+/* small thumbnail that can be dropped inline into a .mat-desc, next to the text
+   (NOT the popup image — this is for a persistent little photo in the row itself) */
+.mat-inline-img{
+    width:28px;
+    height:28px;
+    object-fit:contain;
+    border-radius:4px;
+    background:#0e1b15;
+    padding:3px;
+    margin-right:8px;
+    vertical-align:middle;
+    display:inline-block;
+}
+
+/* the "Details" button at the end of each row, opens the popup */
+.mat-toggle{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    justify-self:end;
+    white-space:nowrap;
+    color:var(--loam);
+    background:var(--paper);
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.02em;
+    padding:7px 14px;
+    border:1px solid rgba(122,74,38,0.28);
+    border-radius:20px;
+    cursor:pointer;
+    font-family:inherit;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+}
+.mat-toggle:hover{
+    background:rgba(122,74,38,0.08);
+}
+/* ---------- MATERIALS DETAILS POPUP ---------- */
+.mat-dialog{
+    border:none;
+    border-radius:10px;
+    padding:0;
+    width:min(560px, 92vw);
+    max-height:min(640px, 86vh);
+    background:var(--paper);
+    color:var(--ink);
+    box-shadow:0 24px 60px rgba(14,27,21,0.35);
+    overflow:hidden;
+    opacity:0;
+    transform:scale(0.94) translateY(10px);
+    transition:opacity .18s ease, transform .18s ease;
+}
+.mat-dialog.is-open{
+    opacity:1;
+    transform:scale(1) translateY(0);
+}
+.mat-dialog::backdrop{
+    background:rgba(14,27,21,0);
+    backdrop-filter:blur(0);
+    transition:background .18s ease, backdrop-filter .18s ease;
+}
+.mat-dialog.is-open::backdrop{
+    background:rgba(14,27,21,0.55);
+    backdrop-filter:blur(2px);
+}
+.mat-dialog[open]{
+    display:flex;
+    flex-direction:column;
+}
+.mat-dialog-close{
+    position:absolute;
+    top:12px; right:12px;
+    width:30px; height:30px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink-soft);
+    font-size:14px;
+    line-height:1;
+    cursor:pointer;
+    z-index:2;
+}
+.mat-dialog-close:hover{background:var(--paper-dim);}
+.mat-dialog-photo{
+    background:var(--paper-dim);
+    aspect-ratio:16/9;
+    max-height:240px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+}
+.mat-dialog-photo img{
+    width:100%; height:100%;
+    object-fit:contain;
+    padding:10px;
+}
+.mat-dialog-body{
+    padding:20px 22px 24px;
+    overflow-y:auto;
+}
+.mat-dialog-name{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+.mat-dialog-desc{
+    font-size:14.5px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+}
+.mat-dialog-specs{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+.mat-spec{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    gap:12px;
+    font-size:13.5px;
+    line-height:1.55;
+    padding:9px 12px;
+    background:var(--paper-dim);
+    border-radius:4px;
+}
+@media (max-width:480px){ .mat-spec{grid-template-columns:1fr; gap:2px;} }
+.mat-spec span:first-child{
+    font-weight:600;
+    color:var(--loam);
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+}
+.mat-spec span:last-child{color:var(--ink-soft);}
 
 /* ---------- FOOTER ---------- */
 footer{

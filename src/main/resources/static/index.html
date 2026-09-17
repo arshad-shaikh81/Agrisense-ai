@@ -165,61 +165,163 @@
         <div class="section-head">
             <p class="section-kicker">Bill of materials</p>
             <h2>What we actually built this with</h2>
-            <p>A deliberately low-cost stack — off-the-shelf sensors and boards, chosen so any small farm could replicate the setup without specialised equipment.</p>
+            <p>A deliberately low-cost stack — off-the-shelf sensors and boards, chosen so any small farm could replicate the setup without specialised equipment. Tap a row for a closer look.</p>
         </div>
 
         <div class="mat-groups">
             <div class="mat-group">
                 <h3 class="mat-group-title">Sensing &amp; control</h3>
                 <div class="mat-list">
+
                     <div class="mat-row">
-                        <div class="mat-name">Arduino Uno <span class="mat-qty">× 1</span></div>
-                        <div class="mat-desc">Main controller — reads the sensor array and drives the relay/pump.</div>
+                        <div class="mat-row-main">
+                            <span class="mat-name">Arduino Uno <span class="mat-qty">× 1</span></span>
+                            <span class="mat-desc">Main controller — reads the sensor array and drives the relay/pump.</span>
+                        </div>
+                        <button type="button" class="mat-toggle"
+                                data-img="assets/arduino.jpeg"
+                                data-name="Arduino Uno"
+                                data-qty="× 1"
+                                data-desc="Main controller — reads the sensor array and drives the relay/pump."
+                                data-specs='[["Microcontroller","ATmega328P, 16 MHz"],["I/O","14 digital, 6 analog pins"],["Operating voltage","5V (7–12V input via barrel jack)"],["Role here","Polls the moisture probe, evaluates the threshold, and fires the relay to run the pump."]]'>
+                            <span class="mat-toggle-label">Details</span>
+                        </button>
                     </div>
+
                     <div class="mat-row">
-                        <div class="mat-name">ESP32 NodeMCU dev board <span class="mat-qty">× 1</span></div>
-                        <div class="mat-desc">Handles Wi‑Fi connectivity, pushing zone readings to the cloud for prediction.</div>
+                        <div class="mat-row-main">
+                            <span class="mat-name">ESP32 NodeMCU dev board <span class="mat-qty">× 1</span></span>
+                            <span class="mat-desc">Handles Wi‑Fi connectivity, pushing zone readings to the cloud for prediction.</span>
+                        </div>
+                        <button type="button" class="mat-toggle"
+                                data-img="assets/espBoard.jpeg"
+                                data-name="ESP32 NodeMCU dev board"
+                                data-qty="× 1"
+                                data-desc="Handles Wi‑Fi connectivity, pushing zone readings to the cloud for prediction."
+                                data-specs='[["Chip","Dual-core Xtensa LX6, built-in Wi‑Fi + BLE"],["Operating voltage","3.3V logic, 5V via micro-USB"],["I/O","~30 GPIO pins, ADC/PWM capable"],["Role here","Uploads each zone\u2019s readings to the cloud and receives the predicted irrigation decision."]]'>
+                            <span class="mat-toggle-label">Details</span>
+                        </button>
                     </div>
+
                     <div class="mat-row">
-                        <div class="mat-name">Soil moisture sensor (YL‑69 probe + comparator module) <span class="mat-qty">× 1 per zone</span></div>
-                        <div class="mat-desc">Two-pronged probe reads root-zone moisture; the LM393 board outputs an analog/digital signal.</div>
+                        <div class="mat-row-main">
+                            <span class="mat-name">Soil moisture sensor (YL‑69 probe + comparator module) <span class="mat-qty">× 1 per zone</span></span>
+                            <span class="mat-desc">Two-pronged probe reads root-zone moisture; the LM393 board outputs an analog/digital signal.</span>
+                        </div>
+                        <button type="button" class="mat-toggle"
+                                data-img="assets/soil-moisture.png"
+                                data-name="Soil moisture sensor (YL‑69 probe + comparator)"
+                                data-qty="× 1 per zone"
+                                data-desc="Two-pronged probe reads root-zone moisture; the LM393 board outputs an analog/digital signal."
+                                data-specs='[["Comparator IC","LM393, adjustable sensitivity via onboard potentiometer"],["Output","Analog (0–1023) and digital threshold (0/1)"],["Operating voltage","3.3–5V"],["Role here","One probe per irrigation zone, giving the zone-wise moisture readings the whole system is built around."]]'>
+                            <span class="mat-toggle-label">Details</span>
+                        </button>
                     </div>
+
                     <div class="mat-row">
-                        <div class="mat-name">1‑channel relay module <span class="mat-qty">× 1</span></div>
-                        <div class="mat-desc">Switches the pump on and off under microcontroller control.</div>
+                        <div class="mat-row-main">
+                            <span class="mat-name">1‑channel relay module <span class="mat-qty">× 1</span></span>
+                            <span class="mat-desc">Switches the pump on and off under microcontroller control.</span>
+                        </div>
+                        <button type="button" class="mat-toggle"
+                                data-img="assets/chennel-relay.png"
+                                data-name="1‑channel relay module"
+                                data-qty="× 1"
+                                data-desc="Switches the pump on and off under microcontroller control."
+                                data-specs='[["Switching capacity","10A @ 250VAC / 10A @ 30VDC (typical)"],["Trigger","Low-level trigger, opto-isolated input"],["Control voltage","5V logic from Arduino digital pin"],["Role here","Acts as the switch between the low-voltage controller and the pump\u2019s power circuit."]]'>
+                            <span class="mat-toggle-label">Details</span>
+                        </button>
                     </div>
+
                 </div>
             </div>
 
             <div class="mat-group">
                 <h3 class="mat-group-title">Irrigation hardware</h3>
                 <div class="mat-list">
+
                     <div class="mat-row">
-                        <div class="mat-name">Mini submersible water pump <span class="mat-qty">× 1</span></div>
-                        <div class="mat-desc">Draws water from the reservoir and delivers it to the zone on demand.</div>
+                        <div class="mat-row-main">
+                            <span class="mat-name">Mini submersible water pump <span class="mat-qty">× 1</span></span>
+                            <span class="mat-desc">Draws water from the reservoir and delivers it to the zone on demand.</span>
+                        </div>
+                        <button type="button" class="mat-toggle"
+                                data-img="assets/water-pump.png"
+                                data-name="Mini submersible water pump"
+                                data-qty="× 1"
+                                data-desc="Draws water from the reservoir and delivers it to the zone on demand."
+                                data-specs='[["Operating voltage","3–6V DC"],["Flow rate","~80–120 L/hour (typical mini-pump)"],["Draw","Low-current, safe on relay-switched battery supply"],["Role here","Delivers water to the drip point only when the relay closes the circuit."]]'>
+                            <span class="mat-toggle-label">Details</span>
+                        </button>
                     </div>
+
                     <div class="mat-row">
-                        <div class="mat-name">Silicone delivery tubing <span class="mat-qty">1 length</span></div>
-                        <div class="mat-desc">Carries water from the pump outlet to the irrigation point.</div>
+                        <div class="mat-row-main">
+                            <span class="mat-name">Silicone delivery tubing <span class="mat-qty">1 length</span></span>
+                            <span class="mat-desc">Carries water from the pump outlet to the irrigation point.</span>
+                        </div>
+                        <button type="button" class="mat-toggle"
+                                data-img="assets/water-tubing.png"
+                                data-name="Silicone delivery tubing"
+                                data-qty="1 length"
+                                data-desc="Carries water from the pump outlet to the irrigation point."
+                                data-specs='[["Material","Food-grade silicone / PVC"],["Bore","~4 mm inner diameter"],["Role here","Routes water from the pump to each zone\u2019s drip outlet."]]'>
+                            <span class="mat-toggle-label">Details</span>
+                        </button>
                     </div>
+
                 </div>
             </div>
 
             <div class="mat-group">
                 <h3 class="mat-group-title">Power</h3>
                 <div class="mat-list">
+
                     <div class="mat-row">
-                        <div class="mat-name">Mini solar panel <span class="mat-qty">× 1</span></div>
-                        <div class="mat-desc">Keeps the system field-deployable without mains power.</div>
+                        <div class="mat-row-main">
+                            <span class="mat-name">Mini solar panel <span class="mat-qty">× 1</span></span>
+                            <span class="mat-desc">Keeps the system field-deployable without mains power.</span>
+                        </div>
+                        <button type="button" class="mat-toggle"
+                                data-img="assets/solar.jpeg"
+                                data-name="Mini solar panel"
+                                data-qty="× 1"
+                                data-desc="Keeps the system field-deployable without mains power."
+                                data-specs='[["Output","~5–6V, ~1W (typical mini panel)"],["Role here","Trickle-charges/tops up the battery supply during daylight."]]'>
+                            <span class="mat-toggle-label">Details</span>
+                        </button>
                     </div>
+
                     <div class="mat-row">
-                        <div class="mat-name">9V battery + snap connector <span class="mat-qty">× 2</span></div>
-                        <div class="mat-desc">Backup/primary power for the controller and pump circuit.</div>
+                        <div class="mat-row-main">
+                            <span class="mat-name">9V battery + snap connector <span class="mat-qty">× 2</span></span>
+                            <span class="mat-desc">Backup/primary power for the controller and pump circuit.</span>
+                        </div>
+                        <button type="button" class="mat-toggle"
+                                data-img="assets/9v-battery.png"
+                                data-name="9V battery + snap connector"
+                                data-qty="× 2"
+                                data-desc="Backup/primary power for the controller and pump circuit."
+                                data-specs='[["Voltage","9V, general-purpose alkaline"],["Connector","Standard snap-on battery clip"],["Role here","One battery powers the controller electronics, the other backs the pump/relay circuit."]]'>
+                            <span class="mat-toggle-label">Details</span>
+                        </button>
                     </div>
+
                     <div class="mat-row">
-                        <div class="mat-name">Jumper wires (M‑M / M‑F) <span class="mat-qty">1 set</span></div>
-                        <div class="mat-desc">Wiring between sensors, relay, and controller boards.</div>
+                        <div class="mat-row-main">
+                            <span class="mat-name">Jumper wires (M‑M / M‑F) <span class="mat-qty">1 set</span></span>
+                            <span class="mat-desc">Wiring between sensors, relay, and controller boards.</span>
+                        </div>
+                        <button type="button" class="mat-toggle"
+                                data-img="assets/jumper-wire.png"
+                                data-name="Jumper wires (M‑M / M‑F)"
+                                data-qty="1 set"
+                                data-desc="Wiring between sensors, relay, and controller boards."
+                                data-specs='[["Types","Male-to-male and male-to-female, assorted lengths"],["Role here","Connects every board and sensor in the circuit without soldering."]]'>
+                            <span class="mat-toggle-label">Details</span>
+                        </button>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -232,6 +334,22 @@
         <p>Sense → Decide → Irrigate</p>
     </div>
 </footer>
+
+<!-- Shared popup used by every "Details" button in the Materials section -->
+<dialog id="matDialog" class="mat-dialog">
+    <button type="button" class="mat-dialog-close" id="matDialogClose" aria-label="Close">✕</button>
+    <div class="mat-dialog-photo">
+        <img id="matDialogImg" src="" alt="">
+    </div>
+    <div class="mat-dialog-body">
+        <div class="mat-dialog-name">
+            <span id="matDialogName"></span>
+            <span class="mat-qty" id="matDialogQty"></span>
+        </div>
+        <p class="mat-dialog-desc" id="matDialogDesc"></p>
+        <div class="mat-dialog-specs" id="matDialogSpecs"></div>
+    </div>
+</dialog>
 
 <script>
     const toggle = document.getElementById('navtoggle');
@@ -259,6 +377,64 @@
         }, { threshold: 0.1 });
         observer.observe(heroVideo);
     }
+
+    // ---- Materials "Details" popup ----
+    const dialog = document.getElementById('matDialog');
+    const dImg = document.getElementById('matDialogImg');
+    const dName = document.getElementById('matDialogName');
+    const dQty = document.getElementById('matDialogQty');
+    const dDesc = document.getElementById('matDialogDesc');
+    const dSpecs = document.getElementById('matDialogSpecs');
+
+    document.querySelectorAll('.mat-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            dImg.src = btn.dataset.img;
+            dImg.alt = btn.dataset.name;
+            dName.textContent = btn.dataset.name;
+            dQty.textContent = btn.dataset.qty;
+            dDesc.textContent = btn.dataset.desc;
+
+            dSpecs.innerHTML = '';
+            let specs = [];
+            try { specs = JSON.parse(btn.dataset.specs || '[]'); } catch (e) { specs = []; }
+            specs.forEach(([label, value]) => {
+                const row = document.createElement('div');
+                row.className = 'mat-spec';
+                const l = document.createElement('span');
+                l.textContent = label;
+                const v = document.createElement('span');
+                v.textContent = value;
+                row.appendChild(l);
+                row.appendChild(v);
+                dSpecs.appendChild(row);
+            });
+
+            openMatDialog();
+        });
+    });
+
+    function openMatDialog(){
+        dialog.showModal();
+        // wait a frame so the browser registers the "closed" starting state
+        // before we add the class that transitions it open
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => dialog.classList.add('is-open'));
+        });
+    }
+
+    function closeMatDialog(){
+        dialog.classList.remove('is-open');
+        setTimeout(() => dialog.close(), 180); // matches the CSS transition duration
+    }
+
+    document.getElementById('matDialogClose').addEventListener('click', closeMatDialog);
+    dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) closeMatDialog(); // click on backdrop
+    });
+    dialog.addEventListener('cancel', (e) => {
+        e.preventDefault(); // stop the instant native close
+        closeMatDialog();
+    });
 </script>
 </body>
 </html>
