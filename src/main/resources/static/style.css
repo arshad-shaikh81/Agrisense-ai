@@ -40,19 +40,37 @@ img{max-width:100%;display:block;}
     padding:0 clamp(18px, 4vw, 32px);
 }
 
+/* ---------- SCROLL PROGRESS BAR ---------- */
+.scroll-progress{
+    position:fixed;
+    top:0; left:0;
+    height:3px;
+    width:0%;
+    background:linear-gradient(90deg, var(--gold), var(--gold-soft));
+    z-index:100;
+    transition:width .1s linear;
+}
+
 /* ---------- NAV ---------- */
 nav{
     position:sticky; top:0; z-index:50;
     background:rgba(14,27,21,0.92);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line-dark);
+    transition:box-shadow .25s ease, background .25s ease;
+}
+nav.nav-scrolled{
+    background:rgba(14,27,21,0.98);
+    box-shadow:0 6px 24px rgba(0,0,0,0.25);
 }
 nav .wrap{
     display:flex; align-items:center; justify-content:space-between;
     height:64px;
     position:relative;
     gap:12px;
+    transition:height .25s ease;
 }
+nav.nav-scrolled .wrap{height:56px;}
 .brand{
     color:var(--paper);
     font-family:'Fraunces',serif;
@@ -164,7 +182,7 @@ header.hero > .wrap, header.hero .hero-strip{position:relative; z-index:1;}
     font-size:13px; color:rgba(245,241,228,0.65); font-weight:500;
 }
 .hero h1{
-    font-size:clamp(80px,vw, 72px);
+    font-size:clamp(38px, 9vw, 72px);
     line-height:1.06;
     color:var(--paper);
     max-width:11ch;
@@ -192,7 +210,9 @@ header.hero > .wrap, header.hero .hero-strip{position:relative; z-index:1;}
     flex:1 1 auto;
     justify-content:center;
     white-space:nowrap;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
 }
+.btn:hover{transform:translateY(-2px);}
 @media (max-width:480px){
     .hero-cta{flex-direction:column;}
     .btn{width:100%;}
@@ -299,6 +319,11 @@ section{padding:clamp(52px, 10vw, 88px) 0; position:relative;}
     background:rgba(14,27,21,0.72);
     backdrop-filter:blur(2px);
     padding:clamp(22px, 4vw, 32px);
+    transition:transform .3s ease, background .3s ease;
+}
+.care-card:hover{
+    transform:translateY(-4px);
+    background:rgba(14,27,21,0.88);
 }
 .care-num{
     font-family:'Fraunces',serif;
@@ -350,6 +375,11 @@ section{padding:clamp(52px, 10vw, 88px) 0; position:relative;}
     background:rgba(10,20,15,0.66);
     backdrop-filter:blur(2px);
     padding:clamp(20px, 4vw, 28px);
+    transition:transform .3s ease, background .3s ease;
+}
+.pstat:hover{
+    transform:translateY(-4px);
+    background:rgba(10,20,15,0.85);
 }
 .pstat p{font-size:14.5px; line-height:1.55; color:rgba(245,241,228,0.78);}
 
@@ -379,7 +409,9 @@ section{padding:clamp(52px, 10vw, 88px) 0; position:relative;}
     gap:20px;
     padding:16px 0;
     border-top:1px solid var(--line);
+    transition:background .2s ease;
 }
+.mat-row:hover{background:rgba(122,74,38,0.04);}
 .mat-group .mat-list .mat-row:last-child{border-bottom:1px solid var(--line);}
 .mat-row-main{
     display:grid;
@@ -414,8 +446,6 @@ section{padding:clamp(52px, 10vw, 88px) 0; position:relative;}
 }
 .mat-desc{font-size:14.5px; line-height:1.6; color:var(--ink-soft);}
 
-/* small thumbnail that can be dropped inline into a .mat-desc, next to the text
-   (NOT the popup image — this is for a persistent little photo in the row itself) */
 .mat-inline-img{
     width:28px;
     height:28px;
@@ -428,7 +458,6 @@ section{padding:clamp(52px, 10vw, 88px) 0; position:relative;}
     display:inline-block;
 }
 
-/* the "Details" button at the end of each row, opens the popup */
 .mat-toggle{
     display:flex;
     align-items:center;
@@ -550,7 +579,6 @@ section{padding:clamp(52px, 10vw, 88px) 0; position:relative;}
 .mat-spec span:last-child{color:var(--ink-soft);}
 
 /* ---------- FOOTER ---------- */
-/* ---------- FOOTER ---------- */
 footer{
     background:var(--forest-deep);
     color:rgba(245,241,228,0.55);
@@ -590,6 +618,7 @@ footer .foot-team{font-weight:500; color:rgba(245,241,228,0.6);}
     .btn{padding:14px 22px;}
     .navlinks a{padding:14px 0;}
 }
+
 /* ---------- SCROLL REVEAL ---------- */
 .reveal{
     opacity:0;
@@ -609,4 +638,5 @@ footer .foot-team{font-weight:500; color:rgba(245,241,228,0.6);}
 
 @media (prefers-reduced-motion: reduce){
     .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
 }
