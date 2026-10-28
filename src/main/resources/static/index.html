@@ -18,7 +18,9 @@
         <div class="navlinks" id="navlinks">
             <a href="#motivation">Motivation</a>
             <a href="#problem">Problem</a>
+            <a href="#telegram">Telegram Bot</a>
             <a href="#materials">Materials</a>
+            <a href="#contact">Contact Us</a>
         </div>
         <button class="navtoggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -46,12 +48,12 @@
             <div>
                 <div class="eyebrow-row reveal">
                     <span class="eyebrow-dot"></span>
-                    <p>Low-cost IoT + AI </p>
+                    <p>Smart irrigation · Telegram alerts</p>
                 </div>
                 <h1 class="reveal">Water only where the soil actually asks for it.</h1>
-                <p class="hero-sub reveal">AgriSense AI reads soil moisture, temperature and humidity zone-by-zone, predicts irrigation needs, and waters automatically — replacing fixed schedules and manual guesswork with a continuous, root-level view of the field.</p>
+                <p class="hero-sub reveal">AgriSense AI checks soil moisture, switches the water pump through a relay, and sends soil-condition and pump-status updates to a Telegram bot over Wi‑Fi.</p>
                 <div class="hero-cta reveal">
-                    <a href="#problem" class="btn btn-primary">See the problem</a>
+                    <a href="#telegram" class="btn btn-primary">See Telegram alerts</a>
                     <a href="#materials" class="btn btn-ghost">See what we used</a>
                 </div>
             </div>
@@ -63,21 +65,21 @@
                         <span class="flow-num">01</span>
                         <div>
                             <h3>Sense</h3>
-                            <p>A field-wide IoT sensor network continuously reads soil moisture, temperature and humidity, zone by zone.</p>
+                            <p>The soil-moisture probe checks whether the soil is dry or has enough moisture.</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <span class="flow-num">02</span>
                         <div>
-                            <h3>Decide</h3>
-                            <p>Cloud + AI prediction turns raw readings into a real irrigation need for each zone, not a fixed calendar guess.</p>
+                            <h3>Control</h3>
+                            <p>The Arduino Uno uses the moisture condition to switch the pump through a relay.</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <span class="flow-num">03</span>
                         <div>
-                            <h3>Irrigate</h3>
-                            <p>Water is released only where and when it's actually required — cutting waste at the source.</p>
+                            <h3>Notify</h3>
+                            <p>The ESP32 connects over Wi‑Fi and sends the soil and pump status to Telegram.</p>
                         </div>
                     </div>
                 </div>
@@ -87,10 +89,10 @@
 
     <div class="hero-strip">
         <div class="wrap">
-            <div class="strip-item"><b>Real crops,</b> real fields</div>
-            <div class="strip-item"><b>Zone-wise</b> soil data</div>
-            <div class="strip-item"><b>Predictive,</b> not reactive</div>
-            <div class="strip-item"><b>Measurable</b> water savings</div>
+            <div class="strip-item"><b>Soil-moisture</b> status</div>
+            <div class="strip-item"><b>Pump</b> ON / OFF updates</div>
+            <div class="strip-item"><b>Telegram</b> bot alerts</div>
+            <div class="strip-item"><b>Arduino Uno</b> + ESP32</div>
         </div>
     </div>
 </header>
@@ -152,6 +154,54 @@
     </div>
 </section>
 
+<section id="telegram" class="telegram-section">
+    <div class="wrap">
+        <div class="telegram-grid">
+            <div class="telegram-copy reveal">
+                <p class="section-kicker">Project updates</p>
+                <h2>Soil and pump alerts, delivered in Telegram.</h2>
+                <p class="telegram-lead">The Telegram chatbot gives the user a quick status update when the soil condition changes. It reports whether the soil is dry or normal and whether the water pump is ON or OFF.</p>
+
+                <div class="telegram-flow" aria-label="How the Telegram update is created">
+                    <div class="telegram-flow-row">
+                        <span>01</span>
+                        <p><strong>Sensor</strong> checks soil moisture.</p>
+                    </div>
+                    <div class="telegram-flow-row">
+                        <span>02</span>
+                        <p><strong>Arduino + relay</strong> control the pump.</p>
+                    </div>
+                    <div class="telegram-flow-row">
+                        <span>03</span>
+                        <p><strong>ESP32 over Wi‑Fi</strong> sends the update to Telegram.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="telegram-preview reveal" aria-label="Example AgriSense AI Telegram bot messages">
+                <div class="telegram-chat-head">
+                    <div class="telegram-avatar" aria-hidden="true">🌱</div>
+                    <div class="telegram-chat-title">
+                        <strong>AgriSense AI</strong>
+                        <span>Smart Irrigation Bot</span>
+                    </div>
+                    <span class="telegram-badge">BOT</span>
+                </div>
+                <p class="telegram-example-label">EXAMPLE BOT OUTPUT</p>
+                <div class="telegram-message telegram-message-update">
+                    <span class="telegram-message-icon" aria-hidden="true">🌿</span>
+                    <p><strong>Update:</strong> Soil moisture is normal.<br>Water pump is turned OFF. ✅</p>
+                </div>
+                <div class="telegram-message telegram-message-alert">
+                    <span class="telegram-message-icon" aria-hidden="true">⚠️</span>
+                    <p><strong>Alert:</strong> Soil is dry!<br>Water pump is turned ON. 🌿💧</p>
+                </div>
+                <p class="telegram-caption">These sample messages show the soil condition and pump status sent by the project.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="materials">
     <div class="wrap">
         <div class="section-head reveal">
@@ -183,14 +233,14 @@
                     <div class="mat-row reveal">
                         <div class="mat-row-main">
                             <span class="mat-name">ESP32 NodeMCU dev board <span class="mat-qty">× 1</span></span>
-                            <span class="mat-desc">Handles Wi‑Fi connectivity, pushing zone readings to the cloud for prediction.</span>
+                            <span class="mat-desc">Connects to Wi‑Fi and sends pump-status alerts to the Telegram bot.</span>
                         </div>
                         <button type="button" class="mat-toggle"
                                 data-img="assets/espBoard.jpeg"
                                 data-name="ESP32 NodeMCU dev board"
                                 data-qty="× 1"
-                                data-desc="Handles Wi‑Fi connectivity, pushing zone readings to the cloud for prediction."
-                                data-specs='[["Chip","Dual-core Xtensa LX6, built-in Wi‑Fi + BLE"],["Operating voltage","3.3V logic, 5V via micro-USB"],["I/O","~30 GPIO pins, ADC/PWM capable"],["Role here","Uploads each zone\u2019s readings to the cloud and receives the predicted irrigation decision."]]'>
+                                data-desc="Connects to Wi‑Fi and sends pump-status alerts to the Telegram bot."
+                                data-specs='[["Chip","Dual-core Xtensa LX6, built-in Wi‑Fi + BLE"],["Operating voltage","3.3V logic, 5V via micro-USB"],["I/O","~30 GPIO pins, ADC/PWM capable"],["Role here","Receives MOTOR_ON or MOTOR_OFF over serial and sends the matching status alert to Telegram."]]'>
                             <span class="mat-toggle-label">Details</span>
                         </button>
                     </div>
@@ -320,13 +370,28 @@
     </div>
 </section>
 
+<section id="contact" class="contact-section">
+    <div class="wrap">
+        <div class="contact-card reveal">
+            <div class="contact-copy">
+                <p class="section-kicker gold">Get in touch</p>
+                <h2>Interested in AgriSense AI?</h2>
+                <p>For project questions, demo requests, collaboration, or purchase inquiries, contact us by email.</p>
+                <a class="contact-email" href="mailto:contact.agrisenseai@gmail.com?subject=AgriSense%20AI%20Project%20Inquiry">contact.agrisenseai@gmail.com</a>
+            </div>
+            <a class="btn btn-primary contact-button" href="mailto:contact.agrisenseai@gmail.com?subject=AgriSense%20AI%20Project%20Inquiry">Contact us by email</a>
+        </div>
+    </div>
+</section>
+
 <footer>
     <div class="wrap foot-top reveal">
         <div class="brand">AgriSense AI</div>
-        <p class="foot-flow">Sense → Decide → Irrigate</p>
+        <p class="foot-flow">Sense → Control → Notify</p>
     </div>
     <div class="wrap foot-bottom">
         <span>© 2026 AgriSense AI</span>
+        <a class="foot-contact" href="mailto:contact.agrisenseai@gmail.com">contact.agrisenseai@gmail.com</a>
         <span class="foot-team">Team: Shaikh Arshad · Shaikh Farhan · Solanki Harsh</span>
     </div>
 </footer>
@@ -346,6 +411,45 @@
         <div class="mat-dialog-specs" id="matDialogSpecs"></div>
     </div>
 </dialog>
+
+<!-- Simple FAQ chatbot: answers are handled in script.js, with no API or backend. -->
+<div class="project-chat" id="projectChat">
+    <button type="button" class="project-chat-launcher" id="projectChatOpen"
+            aria-expanded="false" aria-controls="projectChatPanel">
+        <span aria-hidden="true">💬</span>
+        <span>Ask about the project</span>
+    </button>
+
+    <section class="project-chat-panel" id="projectChatPanel" role="dialog"
+             aria-labelledby="projectChatTitle" hidden>
+        <div class="project-chat-header">
+            <span class="project-chat-avatar" aria-hidden="true">🌱</span>
+            <div class="project-chat-heading">
+                <h2 id="projectChatTitle">AgriSense Help</h2>
+                <span>Project FAQ</span>
+            </div>
+            <button type="button" class="project-chat-close" id="projectChatClose" aria-label="Close chat">×</button>
+        </div>
+
+        <div class="project-chat-messages" id="projectChatMessages" aria-live="polite" aria-relevant="additions">
+            <div class="project-chat-message is-bot">
+                <p>Hi! Ask me about the project, its hardware, or Telegram alerts. I can’t show live sensor readings.</p>
+            </div>
+            <div class="project-chat-quick-replies" aria-label="Suggested questions">
+                <button type="button" data-chat-question="How does it work?">How it works</button>
+                <button type="button" data-chat-question="What Telegram alerts do you send?">Telegram alerts</button>
+                <button type="button" data-chat-question="What components are used?">Components</button>
+            </div>
+        </div>
+
+        <form class="project-chat-form" id="projectChatForm">
+            <label class="visually-hidden" for="projectChatInput">Ask a question about AgriSense AI</label>
+            <input id="projectChatInput" name="question" type="text" placeholder="Ask a basic question…" autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+        <p class="project-chat-note">For live soil and pump status, check the Telegram bot.</p>
+    </section>
+</div>
 
 <script src="script.js"></script>
 </body>
